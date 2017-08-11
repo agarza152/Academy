@@ -1,0 +1,27 @@
+.Catalogo {
+
+    background-color: burlywood;
+
+    border: solid 10px black;
+
+    position:relative;
+
+    margin: auto;
+
+    width: 50%;
+
+    padding: 10px;
+
+    float:left;
+}
+
+
+.Cata{
+
+    width: 30px; 
+
+    height: 30px;
+
+    border: 1px solid green;
+
+}
