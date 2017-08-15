@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PetWaresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PetWaresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="id" />
@@ -13,6 +13,8 @@
           <Property Name="Category" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Active" Type="bit" />
+          <Property Name="Create Date Time" Type="datetime" />
+          <Property Name="Update Data time" Type="datetime" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -26,6 +28,8 @@
           <Property Name="Keywords" Type="nvarchar" MaxLength="50" />
           <Property Name="CategoryId" Type="int" />
           <Property Name="Active" Type="bit" />
+          <Property Name="Create Date Time" Type="datetime" />
+          <Property Name="Update Data time" Type="datetime" />
         </EntityType>
         <EntityType Name="ProductImage">
           <Key>
@@ -36,6 +40,8 @@
           <Property Name="ImageURL" Type="nvarchar" MaxLength="100" />
           <Property Name="Active" Type="bit" />
           <Property Name="ProductId" Type="int" />
+          <Property Name="Create Date Time" Type="datetime" />
+          <Property Name="Update Data time" Type="datetime" />
         </EntityType>
         <Association Name="FK__Product__Categor__25869641">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
@@ -74,8 +80,7 @@
             <End Role="ProductImage" EntitySet="ProductImage" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PetWaresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -88,6 +93,8 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Active" Type="Boolean" />
           <NavigationProperty Name="Products" Relationship="Self.FK__Product__Categor__25869641" FromRole="Category" ToRole="Product" />
+          <Property Name="Create_Date_Time" Type="DateTime" Precision="3" />
+          <Property Name="Update_Data_time" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -103,6 +110,8 @@
           <Property Name="Active" Type="Boolean" />
           <NavigationProperty Name="Category" Relationship="Self.FK__Product__Categor__25869641" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="ProductImages" Relationship="Self.FK__ProductIm__Produ__286302EC" FromRole="Product" ToRole="ProductImage" />
+          <Property Name="Create_Date_Time" Type="DateTime" Precision="3" />
+          <Property Name="Update_Data_time" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="ProductImage">
           <Key>
@@ -114,6 +123,8 @@
           <Property Name="Active" Type="Boolean" />
           <Property Name="ProductId" Type="Int32" />
           <NavigationProperty Name="Product" Relationship="Self.FK__ProductIm__Produ__286302EC" FromRole="ProductImage" ToRole="Product" />
+          <Property Name="Create_Date_Time" Type="DateTime" Precision="3" />
+          <Property Name="Update_Data_time" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK__Product__Categor__25869641">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
@@ -161,6 +172,8 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="PetWaresModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Update_Data_time" ColumnName="Update Data time" />
+                <ScalarProperty Name="Create_Date_Time" ColumnName="Create Date Time" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Category1" ColumnName="Category" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -171,6 +184,8 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="PetWaresModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Update_Data_time" ColumnName="Update Data time" />
+                <ScalarProperty Name="Create_Date_Time" ColumnName="Create Date Time" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -185,6 +200,8 @@
           <EntitySetMapping Name="ProductImages">
             <EntityTypeMapping TypeName="PetWaresModel.ProductImage">
               <MappingFragment StoreEntitySet="ProductImage">
+                <ScalarProperty Name="Update_Data_time" ColumnName="Update Data time" />
+                <ScalarProperty Name="Create_Date_Time" ColumnName="Create Date Time" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />

@@ -40,6 +40,7 @@ namespace MyProducts.AdminSite.Controllers
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "id", "Category1");
+
             return View();
         }
 
@@ -48,11 +49,14 @@ namespace MyProducts.AdminSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Name,Description,Model,Price,Keywords,CategoryId,Active")] Product product)
+        public ActionResult Create([Bind(Include = "id,Name,Description,Model,Price,Keywords,CategoryId,Active, Create_Date_Time,Update_Data_time")] Product product)
         {
+           
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
+                product.Create_Date_Time = DateTime.Now;
+                product.Update_Data_time = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -82,15 +86,18 @@ namespace MyProducts.AdminSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Name,Description,Model,Price,Keywords,CategoryId,Active")] Product product)
+        public ActionResult Edit([Bind(Include = "id,Name,Description,Model,Price,Keywords,CategoryId,Active,Create_Date_Time,Update_Data_time")] Product product)
         {
             if (ModelState.IsValid)
             {
+              var  TiempoCreada = product.Create_Date_Time;
                 db.Entry(product).State = EntityState.Modified;
+                product.Create_Date_Time = TiempoCreada;
+                product.Update_Data_time = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "id", "Category1", product.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "id", "Category1", product.CategoryId,"Create_Date_Time");
             return View(product);
         }
 

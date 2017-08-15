@@ -46,11 +46,14 @@ namespace MyProducts.AdminSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Category1,Description,Active")] Category category)
+        public ActionResult Create([Bind(Include = "id,Category1,Description,Active,Create_Date_Time,Update_Data_time")] Category category)
         {
+  
             if (ModelState.IsValid)
             {
                 db.Categories.Add(category);
+                category.Create_Date_Time = DateTime.Now;
+                category.Update_Data_time = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -70,6 +73,7 @@ namespace MyProducts.AdminSite.Controllers
             {
                 return HttpNotFound();
             }
+            category.Update_Data_time = DateTime.Now;
             return View(category);
         }
 
@@ -78,7 +82,7 @@ namespace MyProducts.AdminSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Category1,Description,Active")] Category category)
+        public ActionResult Edit([Bind(Include = "id,Category1,Description,Active,Create_Date_Time,Update_Data_time")] Category category)
         {
             if (ModelState.IsValid)
             {

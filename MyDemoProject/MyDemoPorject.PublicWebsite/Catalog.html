@@ -1,40 +1,44 @@
 <!DOCTYPE html>
+<style>
+    .imagen {
+        width: 128px;
+        height: 128px;
+        
+    }
+    /* END*/
+</style>
+
 <html>
 
-  <head>
-    <link rel="stylesheet" href="style.css">
-    <link src="Style/Catalog.css" rel="stylesheet"></link>
-   <script src="script.js"></script>
-  </head>
-<style>         
-  .imagen {
-            width : 128px; 
-            height:128px;
-        } 
+<head>
+    <link src="Style/Catalog.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="js/Catalog.js"></script>
+    <script src="js/Catalogusarjason.js"></script>
+</head>
 
-  </style>
+<body class="cuerpo" background="images/background2.jpg">
+    <header>
 
+        <img class="imagen" src="images/th.jpg" align="left"> <h1>Pet wares</h1>
+        <h2 align="left">Catalogue</h2>
+    </header>
+    <div>
+        <br><br><br>
 
-
-  <body class ="cuerpo" background=  "images/background2.jpg">
-<header>
-  
-<img class = "imagen"src="images/th.jpg"align="left" > <h1>Pet wares</h1>
-<h2>Catalogue</h2>     
-</header>
-<div><br><br><br><br><br><br><br><br>
-   
         <div class="Catalogo">
 
-            CatalogO
+            Catalogo
 
-            <div>
+            <div class="Cata">
 
                 <div>ProductName</div>
 
                 <div>
 
-                    <img class="Cata" src="Images/Gran_Danes.jpg" />
+                    <img src="Images/Gran_Danes.jpg" />
 
                 </div>
 
@@ -43,16 +47,28 @@
             </div>
 
         </div>
-</div> 
+    </div>
+    <div class="Catalogo" id="catal">
+        
+        <div class="Cata">
+            <div>hola</div>
+        </div>
+    </div>
 
-   </body>
-<footer>
-  <br><br><br><br><br><br><br><br>
-  <hr>
-  <p><center>Posted by: Alejandro Garza</center></p>
-  <p><center>Contact information: <a href="mailto: garza@gmail.com">
-  garza@gmail.com</a></center></p>
-  <p><center> Direccion: Bosques de chipinque 529, Monterrey, Nuevo Leon</center></p>
-  <p><center> fecha: 8/6/2012</center></p>
-</footer>
+</body>
 </html>
+<footer>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr>
+    <p><center>Posted by: Alejandro Garza</center></p>
+    <p>
+        <center>
+            Contact information: <a href="mailto: garza@gmail.com">
+                garza@gmail.com
+            </a>
+        </center>
+    </p>
+    <p><center> Direccion: Bosques de chipinque 529, Monterrey, Nuevo Leon</center></p>
+    <p><center> fecha: 8/6/2012</center></p>
+</footer>
+

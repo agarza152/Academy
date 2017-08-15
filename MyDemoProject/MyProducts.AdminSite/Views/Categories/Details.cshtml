@@ -33,8 +33,23 @@
         <dd>
             @Html.DisplayFor(model => model.Active)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Create_Date_Time)
+        </dt>
 
-    </dl>
+        <dd>
+            @Html.DisplayFor(model => model.Create_Date_Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Update_Data_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Update_Data_time)
+        </dd>
+
+        
+</dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |

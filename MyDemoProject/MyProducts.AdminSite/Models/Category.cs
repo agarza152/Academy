@@ -24,6 +24,8 @@ namespace MyProducts.AdminSite.Models
         public string Category1 { get; set; }
         public string Description { get; set; }
         public Nullable<bool> Active { get; set; }
+        public Nullable<System.DateTime> Create_Date_Time { get; set; }
+        public Nullable<System.DateTime> Update_Data_time { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }

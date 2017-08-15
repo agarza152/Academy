@@ -28,6 +28,8 @@ namespace MyProducts.AdminSite.Models
         public string Keywords { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public Nullable<bool> Active { get; set; }
+        public Nullable<System.DateTime> Create_Date_Time { get; set; }
+        public Nullable<System.DateTime> Update_Data_time { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
