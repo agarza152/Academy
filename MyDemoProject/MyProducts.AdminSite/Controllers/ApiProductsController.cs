@@ -17,7 +17,7 @@ namespace MyProducts.AdminSite.Controllers
         private PetWaresEntities db = new PetWaresEntities();
 
         // GET: api/ApiProducts
-        public IQueryable<Product> GetProducts()
+        public IEnumerable <Product> GetProducts()
         {
             return db.Products;
         }
